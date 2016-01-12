@@ -10,18 +10,28 @@ import java.awt.*;
 public class Base extends Entity {
     private int entreeX;
     private int entreeY;
+
+    private int x;
+    private int y;
+
+    private static final int SIZE = 100;
+
     private int stock;
-    public Base(int x, int y, int width, int height) {
-        super(x, y, width, height);
-        entreeX= x+width;
-        entreeY=y+(height/2);
+    public Base() {
+        super(0,0,SIZE ,SIZE);
+        x=(UIManager.getWindow().getBoard().getWidth()/2)+SIZE;
+        y=(UIManager.getWindow().getBoard().getHeight()/2)-(SIZE/2);
+        entreeX= x+SIZE;
+        entreeY=y+(SIZE/2);
         stock = 100;
     }
 
     @Override
     public void draw(Graphics2D g) {
+        x=(UIManager.getWindow().getBoard().getWidth()/2)+SIZE;
+        y=(UIManager.getWindow().getBoard().getHeight()/2)-(SIZE/2);
         g.setColor(Color.blue);
-        g.fillRect(x, y, width, height);
+        g.fillRect(x, y, SIZE, SIZE);
     }
 
     @Override

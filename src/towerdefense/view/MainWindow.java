@@ -18,4 +18,8 @@ public class MainWindow extends JFrame {
     public void refreshBoard() {
         this.Board.repaint();
     }
+
+    public towerdefense.view.Board getBoard() {
+        return Board;
+    }
 }

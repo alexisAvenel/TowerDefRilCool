@@ -13,7 +13,7 @@ public class EntityManager {
     }
 
     public static void init(){
-        entities.add(new Base(UIManager.getWindow().Board.getWidth()/2,UIManager.getWindow().Board.getHeight()/2, 100, 100));
+        entities.add(new Base((UIManager.getWindow().getBoard().getWidth()/2)+100,(UIManager.getWindow().getBoard().getHeight()/2)-50, 100, 100));
 
     }
 

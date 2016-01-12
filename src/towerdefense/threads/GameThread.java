@@ -5,7 +5,7 @@ import towerdefense.manager.EntityManager;
 import towerdefense.manager.UIManager;
 
 public class GameThread {
-    public static void LounchRepaintThread() {
+    public static void LaunchRepaintThread() {
         new Thread(()-> {
             while (true){
                 Repaint();

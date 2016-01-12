@@ -1,7 +1,7 @@
 package towerdefense;
 
-import towerdefense.manager.EntityManager;
 import towerdefense.manager.UIManager;
+import towerdefense.threads.GameThread;
 
 
 public class Main {
@@ -10,6 +10,6 @@ public class Main {
         //EntityManager.init();
 
         UIManager.getWindow();
-        //GameThread.LounchRepaintThread();
+        GameThread.LaunchRepaintThread();
     }
 }

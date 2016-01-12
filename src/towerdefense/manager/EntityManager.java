@@ -12,6 +12,8 @@ public class EntityManager {
     }
 
     public static void entityManagement() {
-
+        for(Entity entity: getClone()) {
+            entity.update();
+        }
     }
 }

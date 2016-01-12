@@ -10,9 +10,12 @@ public class MainWindow extends JFrame {
     public MainWindow() {
 
         setContentPane(contentPane);
+        setTitle("TowerDefense RIL COOL"); //On donne un titre à l'application
+        setSize(800,600); //On donne une taille à notre fenêtre
+        setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
+        setResizable(false); //On interdit la redimensionnement de la fenêtre
         setVisible(true);
-        setPreferredSize(new Dimension(800, 600));
-        pack();
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //On dit à l'application de se fermer lors du clic sur la croix
     }
 
     public void refreshBoard() {

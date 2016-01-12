@@ -9,8 +9,11 @@ public class Ressource {
 
     public Ressource(String name) {
         this.name = name;
-        this.quantit
+        this.quantity = 0;
     }
 
-    public Res
+    public Ressource(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
 }

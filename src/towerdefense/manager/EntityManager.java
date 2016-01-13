@@ -1,16 +1,19 @@
 package towerdefense.manager;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import towerdefense.bo.Base;
 import towerdefense.bo.Entity;
 import towerdefense.bo.ResourceDispenser;
 import towerdefense.bo.Tower;
+import towerdefense.bo.peon.PeonManager;
 import towerdefense.util.Functions;
+import towerdefense.bo.peon.Peon;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public class EntityManager {
     public static ArrayList<Entity> entities = new ArrayList<>();
+    public static PeonManager peonManager = new PeonManager();
 
     public static ArrayList<Tower> towers = new ArrayList<>();
 
@@ -22,9 +25,13 @@ public class EntityManager {
         return (ArrayList<Entity>) towers.clone();
     }
 
-    public static void init(){
+    public static void init() {
         entities.add(new Base());
+
         entities.add(new ResourceDispenser());
+
+        Peon p = peonManager.createPeon(((Base) entities.get(0)).getEntree());
+        entities.add(p);
     }
 
     public static void addTower(Tower tower){

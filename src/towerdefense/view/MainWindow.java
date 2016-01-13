@@ -34,10 +34,10 @@ public class MainWindow extends JFrame {
                 super.mouseClicked(mouseEvent);
                 ArrayList<Point> slotsTower = new ArrayList<Point>();
                 slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
-                slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
-                slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
                 slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
+                slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
                 slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
+                slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
                 slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
                 if (EntityManager.getTowers().size() < 6){
                     if(((Base) EntityManager.entities.get(0)).removeRessource(new Ressource(null, Tower.cost))){

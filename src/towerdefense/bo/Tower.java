@@ -7,7 +7,7 @@ import java.awt.*;
  */
 public class Tower extends Entity {
 
-
+    public static final int cost = 60;
 
     public Tower(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -23,4 +23,6 @@ public class Tower extends Entity {
     public void update() {
 
     }
+
+
 }

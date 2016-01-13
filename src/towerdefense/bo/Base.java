@@ -14,7 +14,7 @@ public class Base extends Entity {
     private int x;
     private int y;
 
-    private static final int SIZE = 100;
+    public static final int SIZE = 100;
 
     private int stock;
     public Base() {

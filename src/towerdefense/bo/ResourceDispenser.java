@@ -22,7 +22,7 @@ public class ResourceDispenser extends Entity {
     public ResourceDispenser() {
         super(x, y, width, height);
         p.x = x;
-        p.y = y-(height/2);
+        p.y = y+(height/2);
     }
 
     @Override

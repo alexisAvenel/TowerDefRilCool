@@ -17,13 +17,7 @@ public class EntityManager {
 
     public static void init(){
         entities.add(new Base());
-        entities.add(new ResourceDispenser(
-                UIManager.getWindow().getBoard().getWidth()-80,
-                UIManager.getWindow().getBoard().getHeight()-100,
-                50,
-                50,
-                Functions.randInt(1000, 3000))
-        );
+        entities.add(new ResourceDispenser());
     }
 
     public static void entityManagement() {

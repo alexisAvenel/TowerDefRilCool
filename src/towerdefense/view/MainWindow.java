@@ -17,7 +17,7 @@ public class MainWindow extends JFrame {
 
         setContentPane(contentPane);
         setTitle("TowerDefense RIL COOL"); //On donne un titre à l'application
-        setSize(800,600); //On donne une taille à notre fenêtre
+        setSize(1000,600); //On donne une taille à notre fenêtre
         setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
         setResizable(false); //On interdit la redimensionnement de la fenêtre
         setVisible(true);

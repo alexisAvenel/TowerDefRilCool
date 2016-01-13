@@ -1,17 +1,24 @@
 package towerdefense.view;
 
+import towerdefense.bo.Base;
+import towerdefense.bo.Entity;
+import towerdefense.bo.Ressource;
 import towerdefense.bo.Tower;
-import towerdefense.manager.EntityManager;
+import towerdefense.manager.*;
+import towerdefense.manager.UIManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class MainWindow extends JFrame {
     private JPanel contentPane;
     private towerdefense.view.Board Board;
     private JButton AddTowerBtn;
+    private JLabel systemMsgLabel;
+    private JLabel systemMsgContent;
 
     public MainWindow() {
 
@@ -26,7 +33,24 @@ public class MainWindow extends JFrame {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 super.mouseClicked(mouseEvent);
-                EntityManager.entities.add(new Tower(50, 50, 20, 20));
+                ArrayList<Point> slotsTower = new ArrayList<Point>();
+                slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
+                slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
+                slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
+                slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
+                slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
+                slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
+                if (EntityManager.getTowers().size() < 6){
+                    if(((Base) EntityManager.entities.get(0)).removeRessource(new Ressource(null, Tower.cost))){
+                        EntityManager.addTower(new Tower((int)(slotsTower.get(EntityManager.getTowers().size()).getX()), (int)(slotsTower.get(EntityManager.getTowers().size()).getY()), 20, 20));
+                    }
+                    else{
+                        systemMsgContent.setText("You can't add a tower! You don't have enough resources.");
+                    }
+                }
+                else{
+                    systemMsgContent.setText("You can't add more tower!");
+                }
             }
         });
     }

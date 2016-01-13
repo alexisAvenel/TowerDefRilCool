@@ -1,16 +1,12 @@
 package towerdefense.bo;
 
-import javafx.scene.control.Tooltip;
-import javafx.scene.image.*;
 import towerdefense.img.LogicalPath;
 import towerdefense.manager.UIManager;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.Random;
 
 /**
  * Created by Alexis on 12/01/2016.

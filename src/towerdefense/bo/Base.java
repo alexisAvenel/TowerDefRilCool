@@ -17,6 +17,7 @@ public class Base extends Entity {
     private int y;
     public static final int SIZE = 150;
     private int stock;
+    private BufferedImage img;
 
     public Base() {
         super(0,0,SIZE ,SIZE);
@@ -27,16 +28,16 @@ public class Base extends Entity {
         entree.y= y+(SIZE/2);
 
         stock = 100;
-    }
 
-    @Override
-    public void draw(Graphics2D g) {
-        BufferedImage img = null;
         try {
             img = ImageIO.read(LogicalPath.class.getResource("chateau.png"));
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
+
+    @Override
+    public void draw(Graphics2D g) {
         g.drawImage(img, x, y, SIZE, SIZE, null);
     }
 

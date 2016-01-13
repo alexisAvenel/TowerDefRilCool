@@ -37,9 +37,6 @@ public class MainWindow extends JFrame {
                 slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
                 slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
                 slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)-20));
-                slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
-                slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
-                slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
                 slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
                 slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
                 slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));

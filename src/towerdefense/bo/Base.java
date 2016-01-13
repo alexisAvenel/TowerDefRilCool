@@ -8,8 +8,8 @@ import java.awt.*;
  * Created by Aurélien on 12/01/2016.
  */
 public class Base extends Entity {
-    private int entreeX;
-    private int entreeY;
+
+    private Point entree = new Point();
 
     private int x;
     private int y;
@@ -21,8 +21,10 @@ public class Base extends Entity {
         super(0,0,SIZE ,SIZE);
         x=(UIManager.getWindow().getBoard().getWidth()/2)+SIZE;
         y=(UIManager.getWindow().getBoard().getHeight()/2)-(SIZE/2);
-        entreeX= x+SIZE;
-        entreeY=y+(SIZE/2);
+
+        entree.x= x+SIZE;
+        entree.y= y+(SIZE/2);
+
         stock = 100;
     }
 
@@ -43,21 +45,22 @@ public class Base extends Entity {
         stock+=r.getQuantity();
     }
 
-    public void removeRessource(Ressource r){
+    public boolean removeRessource(Ressource r){
         if((stock - r.getQuantity()) >= 0){
             stock -= r.getQuantity();
+            return true;
         }
-    }
-
-    public int getEntreeX() {
-        return entreeX;
-    }
-
-    public int getEntreeY() {
-        return entreeY;
+        else {
+            return false;
+        }
     }
 
     public int getStock() {
         return stock;
     }
+
+    public Point getEntree() {
+        return entree;
+    }
+
 }

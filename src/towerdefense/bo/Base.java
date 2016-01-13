@@ -20,7 +20,7 @@ public class Base extends Entity {
 
     public Base() {
         super(0,0,SIZE ,SIZE);
-        x=(UIManager.getWindow().getBoard().getWidth()/2)+SIZE;
+        x=(UIManager.getWindow().getBoard().getWidth()/2)+(SIZE/2);
         y=(UIManager.getWindow().getBoard().getHeight()/2)-(SIZE/2);
 
         entree.x= x+SIZE;
@@ -31,9 +31,6 @@ public class Base extends Entity {
 
     @Override
     public void draw(Graphics2D g) {
-        x=(UIManager.getWindow().getBoard().getWidth()/2)+(SIZE);
-        y=(UIManager.getWindow().getBoard().getHeight()/2)-(SIZE/2);
-
         BufferedImage img = null;
         try {
             img = ImageIO.read(LogicalPath.class.getResource("chateau.png"));

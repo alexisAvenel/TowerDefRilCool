@@ -51,7 +51,7 @@ public class MainWindow extends JFrame {
                 else{
                     msgSystem.setText("System message : You can't add more tower!");
                 }
-                msgNbRessources.setText("Ressources : "+ ((Base) EntityManager.entities.get(0)).getStock());
+                msgNbRessources.setText("Ressources : "+ EntityManager.getBase().getStock());
             }
         });
     }

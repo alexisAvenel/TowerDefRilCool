@@ -21,7 +21,8 @@ public class ResourceDispenser extends Entity {
 
     public ResourceDispenser() {
         super(x, y, width, height);
-        p.setLocation(0, height/2);
+        p.x = 0;
+        p.y = -(height/2);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class ResourceDispenser extends Entity {
 
     }
 
-    public Point getP() {
+    public Point getEntryPoint() {
         return p;
     }
 }

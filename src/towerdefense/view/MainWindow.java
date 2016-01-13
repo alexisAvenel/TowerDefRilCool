@@ -57,6 +57,7 @@ public class MainWindow extends JFrame {
     }
 
     public void refreshBoard() {
+        msgNbRessources.setText("Ressources : "+ EntityManager.getBase().getStock());
         this.Board.repaint();
     }
 

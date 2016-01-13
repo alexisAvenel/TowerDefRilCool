@@ -2,6 +2,7 @@ package towerdefense.bo;
 
 import towerdefense.img.LogicalPath;
 import towerdefense.manager.UIManager;
+import towerdefense.util.Sprite;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -29,11 +30,7 @@ public class Base extends Entity {
 
         stock = 100;
 
-        try {
-            img = ImageIO.read(LogicalPath.class.getResource("chateau.png"));
-        } catch (IOException e) {
-            System.out.println(e);
-        }
+        img = new Sprite("chateau.png", 122).getSprite(0,0);
     }
 
     @Override

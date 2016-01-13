@@ -29,7 +29,6 @@ public class PeonManager implements Observer{
 
         MoveToDispenser dsp = new MoveToDispenser(peon, (ResourceDispenser) EntityManager.entities.get(1));
         dsp.addObserver(this);
-       // MoveToBase base = new Move ToBase(peon, (Base) EntityManager.entities.get(0));
         peon.setTask(dsp);
 
         return peon;
@@ -37,7 +36,6 @@ public class PeonManager implements Observer{
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("update");
         if(o instanceof MoveToDispenser) {
 
             ResourceDispenser r = (ResourceDispenser) arg;
@@ -59,7 +57,6 @@ public class PeonManager implements Observer{
 
             MoveToDispenser dsp = new MoveToDispenser(task.peon, (ResourceDispenser) EntityManager.entities.get(1));
             dsp.addObserver(this);
-            // MoveToBase base = new Move ToBase(peon, (Base) EntityManager.entities.get(0));
             task.peon.setTask(dsp);
             return;
         }

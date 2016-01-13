@@ -19,9 +19,9 @@ public class MainWindow extends JFrame {
     private JButton AddTowerBtn;
     private JLabel systemMsgLabel;
     private JLabel systemMsgContent;
+    private JLabel msgNbRessources;
 
     public MainWindow() {
-
         setContentPane(contentPane);
         setTitle("TowerDefense RIL COOL"); //On donne un titre à l'application
         setSize(1000,600); //On donne une taille à notre fenêtre
@@ -51,6 +51,7 @@ public class MainWindow extends JFrame {
                 else{
                     systemMsgContent.setText("You can't add more tower!");
                 }
+                msgNbRessources.setText("Ressources : "+ ((Base) EntityManager.entities.get(0)).getStock());
             }
         });
     }

@@ -12,15 +12,12 @@ import java.io.IOException;
  * Created by Aurélien on 12/01/2016.
  */
 public class Base extends Entity {
-
     private Point entree = new Point();
-
     private int x;
     private int y;
-
     public static final int SIZE = 150;
-
     private int stock;
+
     public Base() {
         super(0,0,SIZE ,SIZE);
         x=(UIManager.getWindow().getBoard().getWidth()/2)+SIZE;
@@ -43,7 +40,6 @@ public class Base extends Entity {
         } catch (IOException e) {
             System.out.println(e);
         }
-
         g.drawImage(img, x, y, SIZE, SIZE, null);
     }
 

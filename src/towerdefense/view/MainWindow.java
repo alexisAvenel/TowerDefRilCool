@@ -17,11 +17,10 @@ public class MainWindow extends JFrame {
     private JPanel contentPane;
     private towerdefense.view.Board Board;
     private JButton AddTowerBtn;
-    private JLabel systemMsgLabel;
-    private JLabel systemMsgContent;
+    private JLabel msgSystem;
+    private JLabel msgNbRessources;
 
     public MainWindow() {
-
         setContentPane(contentPane);
         setTitle("TowerDefense RIL COOL"); //On donne un titre à l'application
         setSize(1000,600); //On donne une taille à notre fenêtre
@@ -43,14 +42,16 @@ public class MainWindow extends JFrame {
                 if (EntityManager.getTowers().size() < 6){
                     if(((Base) EntityManager.entities.get(0)).removeRessource(new Ressource(null, Tower.cost))){
                         EntityManager.addTower(new Tower((int)(slotsTower.get(EntityManager.getTowers().size()).getX()), (int)(slotsTower.get(EntityManager.getTowers().size()).getY()), 50, 50));
+                        msgSystem.setText("System message : You add a new tower.");
                     }
                     else{
-                        systemMsgContent.setText("You can't add a tower! You don't have enough resources.");
+                        msgSystem.setText("System message : You can't add a tower! You don't have enough resources.");
                     }
                 }
                 else{
-                    systemMsgContent.setText("You can't add more tower!");
+                    msgSystem.setText("System message : You can't add more tower!");
                 }
+                msgNbRessources.setText("Ressources : "+ EntityManager.getBase().getStock());
             }
         });
     }

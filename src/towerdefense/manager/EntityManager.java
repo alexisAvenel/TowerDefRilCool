@@ -37,4 +37,8 @@ public class EntityManager {
             entity.update();
         }
     }
+
+    public static Base getBase(){
+        return ((Base) EntityManager.entities.get(0));
+    }
 }

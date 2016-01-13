@@ -14,6 +14,7 @@ public class MoveTask extends BaseTask {
     public MoveTask(Peon peon, Point target) {
         super(peon);
         this.target = target;
+        peon.setWalking();
     }
 
     //Getters - Setters

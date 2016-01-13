@@ -15,6 +15,7 @@ public class GatherTask extends BaseTask {
         super(peon);
         startTime = -1;
         this.resourceDispenser = resourceDispenser;
+        peon.setGathering();
     }
 
     @Override

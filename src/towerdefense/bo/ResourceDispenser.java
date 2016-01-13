@@ -21,8 +21,8 @@ public class ResourceDispenser extends Entity {
 
     public ResourceDispenser() {
         super(x, y, width, height);
-        p.x = 0;
-        p.y = -(height/2);
+        p.x = x;
+        p.y = y-(height/2);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ResourceDispenser extends Entity {
             System.out.println(e);
         }
 
-        g.drawImage(img, x, y, 50, 50, null);
+        g.drawImage(img, x, y, width, height, null);
     }
 
     @Override

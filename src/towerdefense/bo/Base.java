@@ -1,8 +1,12 @@
 package towerdefense.bo;
 
+import towerdefense.img.LogicalPath;
 import towerdefense.manager.UIManager;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 /**
  * Created by Aurélien on 12/01/2016.
@@ -14,7 +18,7 @@ public class Base extends Entity {
     private int x;
     private int y;
 
-    public static final int SIZE = 100;
+    private static final int SIZE = 150;
 
     private int stock;
     public Base() {
@@ -30,10 +34,17 @@ public class Base extends Entity {
 
     @Override
     public void draw(Graphics2D g) {
-        x=(UIManager.getWindow().getBoard().getWidth()/2)+SIZE;
+        x=(UIManager.getWindow().getBoard().getWidth()/2)+(SIZE);
         y=(UIManager.getWindow().getBoard().getHeight()/2)-(SIZE/2);
-        g.setColor(Color.blue);
-        g.fillRect(x, y, SIZE, SIZE);
+
+        BufferedImage img = null;
+        try {
+            img = ImageIO.read(LogicalPath.class.getResource("chateau.png"));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+        g.drawImage(img, x, y, SIZE, SIZE, null);
     }
 
     @Override

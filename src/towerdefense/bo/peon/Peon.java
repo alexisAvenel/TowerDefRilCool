@@ -80,4 +80,12 @@ public class Peon extends Entity {
             ITask.execute();
         }
     }
+
+    public void setWalking() {
+
+    }
+
+    public void setGathering() {
+
+    }
 }

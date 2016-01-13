@@ -8,9 +8,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-/**
- * Created by Alexis on 12/01/2016.
- */
 public class ResourceDispenser extends Entity {
 
     private static final int width = 60;

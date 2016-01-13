@@ -13,20 +13,19 @@ import java.io.IOException;
 public class Tower extends Entity {
 
     public static final int cost = 60;
+    private BufferedImage img;
 
     public Tower(int x, int y, int width, int height) {
         super(x, y, width, height);
-    }
-
-    @Override
-    public void draw(Graphics2D g) {
-        BufferedImage img = null;
         try {
             img = ImageIO.read(LogicalPath.class.getResource("tower.png"));
         } catch (IOException e) {
             System.out.println(e);
         }
+    }
 
+    @Override
+    public void draw(Graphics2D g) {
         g.drawImage(img, x, y, width, height, null);
     }
 

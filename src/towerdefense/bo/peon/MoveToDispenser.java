@@ -14,8 +14,6 @@ public class MoveToDispenser extends MoveTask{
     }
 
     protected void task_notify() {
-        System.out.println(done);
-
         if(!done) {
             setChanged();
             notifyObservers(resourceDispenser);

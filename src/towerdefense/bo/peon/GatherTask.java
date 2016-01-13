@@ -15,7 +15,6 @@ public class GatherTask extends BaseTask {
         super(peon);
         startTime = -1;
         this.resourceDispenser = resourceDispenser;
-        peon.setGathering();
     }
 
     @Override
@@ -25,6 +24,8 @@ public class GatherTask extends BaseTask {
                 startTime = System.currentTimeMillis();
             }
             long elapsed = System.currentTimeMillis() - startTime;
+            double percent =  Math.max(elapsed, 0.001) / timeToGather  * 100;
+            peon.setGathering(percent);
 
             if (elapsed >= timeToGather) {
                 setChanged();

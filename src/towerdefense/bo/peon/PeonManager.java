@@ -49,8 +49,6 @@ public class PeonManager implements Observer{
 
         if(o instanceof MoveToBase) {
             MoveToBase task = (MoveToBase) o;
-
-            System.out.println(task.peon.getRessource().getQuantity());
             EntityManager.getBase().addResource(task.peon.getRessource());
             task.peon.emptyRessource();
 

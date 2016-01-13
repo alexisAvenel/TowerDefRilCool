@@ -14,7 +14,6 @@ public class MoveTask extends BaseTask {
     public MoveTask(Peon peon, Point target) {
         super(peon);
         this.target = target;
-        peon.setWalking();
     }
 
     //Getters - Setters
@@ -38,9 +37,10 @@ public class MoveTask extends BaseTask {
     //Methods
     @Override
     public void execute() {
-        if(target != null && !done) {
+        if(target != null && !done){
             setNewSpeed(target);
-            if(peon.intersects(new Rectangle(target, new Dimension(peon.SIZE / 2, peon.SIZE / 2)))) {
+            double d = new Point((int) peon.getCenterX(), (int) peon.getCenterY()).distance(target.getX(), target.getY());
+            if(d < peon.width / 4) {
                 task_notify();
                 return;
             }
@@ -52,6 +52,7 @@ public class MoveTask extends BaseTask {
     private void setNewSpeed(Point p) {
         double angle = Math.atan2(p.y - peon.getCenterY(), p.x - peon.getCenterX());
         peon.setSpeed( peon.MAG_SPEED * Math.cos(angle),  peon.MAG_SPEED * Math.sin(angle));
+        peon.setWalking(angle);
     }
 
     protected void task_notify() {

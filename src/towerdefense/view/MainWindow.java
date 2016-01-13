@@ -40,9 +40,12 @@ public class MainWindow extends JFrame {
                 slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
                 slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
                 slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+100));
+                slotsTower.add(new Point(100, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
+                slotsTower.add(new Point(200, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
+                slotsTower.add(new Point(300, (UIManager.getWindow().getBoard().getHeight()/2)-(Base.SIZE/2)+125));
                 if (EntityManager.getTowers().size() < 6){
                     if(((Base) EntityManager.entities.get(0)).removeRessource(new Ressource(null, Tower.cost))){
-                        EntityManager.addTower(new Tower((int)(slotsTower.get(EntityManager.getTowers().size()).getX()), (int)(slotsTower.get(EntityManager.getTowers().size()).getY()), 20, 20));
+                        EntityManager.addTower(new Tower((int)(slotsTower.get(EntityManager.getTowers().size()).getX()), (int)(slotsTower.get(EntityManager.getTowers().size()).getY()), 50, 50));
                     }
                     else{
                         systemMsgContent.setText("You can't add a tower! You don't have enough resources.");

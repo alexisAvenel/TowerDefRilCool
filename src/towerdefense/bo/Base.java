@@ -30,7 +30,7 @@ public class Base extends Entity {
 
         stock = 100;
 
-        img = new Sprite("chateau.png", 122).getSprite(0,0);
+        img = new Sprite("chateau.png").getImg();
     }
 
     @Override

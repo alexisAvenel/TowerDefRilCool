@@ -25,10 +25,7 @@ public class GatherTask extends BaseTask {
             }
             long elapsed = System.currentTimeMillis() - startTime;
 
-            System.out.println("gathering  " + elapsed);
-
             if (elapsed >= timeToGather) {
-                System.out.println("finshed ");
                 setChanged();
                 notifyObservers(resourceDispenser);
                 done = true;

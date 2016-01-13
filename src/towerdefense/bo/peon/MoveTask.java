@@ -55,7 +55,7 @@ public class MoveTask extends BaseTask {
 
     protected void task_notify() {
         if(! done) {
-            System.out.println("done");
+            setChanged();
             notifyObservers();
             done = true;
         }

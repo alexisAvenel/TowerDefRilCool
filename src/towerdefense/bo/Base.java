@@ -14,6 +14,7 @@ import java.io.IOException;
  */
 public class Base extends Entity {
     private Point entree = new Point();
+    private Point enemyEntry = new Point();
     private int x;
     private int y;
     public static final int SIZE = 150;
@@ -27,6 +28,9 @@ public class Base extends Entity {
 
         entree.x= x+SIZE;
         entree.y= y+(SIZE/2);
+
+        enemyEntry.x= x;
+        enemyEntry.y= y+(SIZE/2);
 
         stock = 100;
 
@@ -63,6 +67,10 @@ public class Base extends Entity {
 
     public Point getEntree() {
         return entree;
+    }
+
+    public Point getEnemyEntry() {
+        return enemyEntry;
     }
 
 }

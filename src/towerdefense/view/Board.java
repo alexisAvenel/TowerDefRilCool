@@ -7,6 +7,8 @@ import towerdefense.bo.Entity;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
@@ -16,13 +18,24 @@ import java.io.IOException;
 public class Board extends JPanel {
     public Board() {
         super(true);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent me) {
+                super.mouseClicked(me);
+                for (Entity entity : EntityManager.entities) {
+
+                    if (entity.contains(me.getPoint())) {//check if mouse is clicked within shape
+                        entity.onClick(me);
+                    }
+                }
+            }
+        });
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g;
-        //g2.setColor(Color.green);
-        //g2.fillRect(0, 0, getWidth(), getHeight());
 
         BufferedImage img = null;
         try {

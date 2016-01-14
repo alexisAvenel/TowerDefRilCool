@@ -1,28 +1,43 @@
 package towerdefense.bo.enemies;
 
 import towerdefense.bo.Entity;
-import towerdefense.bo.enemies.ITask;
+import towerdefense.util.Functions;
+import towerdefense.util.Pair;
+import towerdefense.util.Sprite;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Vector;
 
 /**
  * Created by Alexis on 13/01/2016.
  */
 public class Enemy  extends Entity {
-    public static final int SIZE = 10;
+    public static final int WIDTH = 70;
+    public static final int HEIGHT = 70;
     public static final float MAG_SPEED = 2;
-
-    private towerdefense.bo.enemies.ITask ITask;
-
+    private ITask ITask;
     private Vector<java.lang.Double> speed;
+    private Sprite sprite;
+
+    private ArrayList<Pair<Integer, Integer>> walkingSprites;
+    private ArrayList<Pair<Integer, Integer>> gatheringSprites;
+    private ArrayList<Pair<Integer, Integer>> actualSprites;
+    private int spriteIndex = 0;
+    private int spriteDirection = 0;
+    private long timeStamp = 0 ;
 
     public Enemy(int x, int y) {
-        super(x, y, SIZE, SIZE);
+        super(x, y, WIDTH, HEIGHT);
 
         speed = new Vector<>();
         speed.add((double) 0);
         speed.add((double) 0);
+
+        sprite = new Sprite("enemy_spritesheet.png", 76, 57);
+        walkingSprites = new ArrayList<>();
+        gatheringSprites = new ArrayList<>();
+        actualSprites = walkingSprites;
     }
 
     public void setPosition(Point p) {
@@ -49,12 +64,7 @@ public class Enemy  extends Entity {
 
     @Override
     public void draw(Graphics2D g) {
-        g.setColor(Color.red);
-        g.fillRect(x, y, width, height);
-        g.setColor(Color.blue);
-        String pos = new String(x + " - " + y );
-
-        g.drawString(pos, (int) getCenterX(), (int) getCenterY() );
+        g.drawImage(sprite.getSprite(spriteDirection,spriteIndex), x, y, width, height, null);
     }
 
     @Override
@@ -64,12 +74,39 @@ public class Enemy  extends Entity {
         }
     }
 
-    public void setWalking() {
+    public void setWalking(double angle) {
 
+        long tmp = System.currentTimeMillis();
+        if(tmp - timeStamp > 125) {
+            timeStamp = tmp;
+            spriteIndex = (spriteIndex+ 1) % 5;
+
+            actualSprites = walkingSprites;
+
+            double degAngle = Math.abs(Math.toDegrees(angle));
+            if(Functions.isBetween(degAngle, 0, 45 ) || angle > 315) {
+                spriteDirection = 2;
+            } else if (Functions.isBetween(degAngle, 46, 135)){
+                spriteDirection = 3;
+            } else if (Functions.isBetween(degAngle, 136, 225)) {
+                spriteDirection = 1;
+            } else {
+                spriteDirection = 0;
+            }
+        }
     }
 
-    public void setGathering() {
-
+    public void setGathering(double percent) {
+        actualSprites = gatheringSprites;
+        if(percent < 25) {
+            spriteIndex = 4;
+        } else if (percent < 50) {
+            spriteIndex = 5;
+        } else if (percent < 75) {
+            spriteIndex = 6;
+        } else {
+            spriteIndex = 7;
+        }
     }
 
 }

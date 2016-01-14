@@ -10,7 +10,6 @@ public class GatherTask extends BaseTask {
     public GatherTask(Enemy enemy) {
         super(enemy);
         startTime = -1;
-        enemy.setGathering();
     }
 
     @Override
@@ -20,6 +19,8 @@ public class GatherTask extends BaseTask {
                 startTime = System.currentTimeMillis();
             }
             long elapsed = System.currentTimeMillis() - startTime;
+            double percent =  Math.max(elapsed, 0.001) / timeToGather  * 100;
+            enemy.setGathering(percent);
 
             if (elapsed >= timeToGather) {
                 setChanged();

@@ -52,8 +52,8 @@ public class GameThread {
                 new Point(
                         0,
                         Functions.randInt(
-                                UIManager.getWindow().getBoard().getHeight()/2 - 20,
-                                UIManager.getWindow().getBoard().getHeight()/2 + 20
+                                UIManager.getWindow().getBoard().getHeight()/2 - 70,
+                                UIManager.getWindow().getBoard().getHeight()/2 - 20
                         )
                 )
         );

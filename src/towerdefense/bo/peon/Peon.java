@@ -4,6 +4,7 @@ import towerdefense.bo.Entity;
 import towerdefense.bo.Ressource;
 import towerdefense.util.Pair;
 import towerdefense.util.Sprite;
+import towerdefense.util.Functions;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -25,9 +26,9 @@ public class Peon extends Entity {
 
     private Sprite sprite;
 
-    private ArrayList<towerdefense.util.Pair<Integer, Integer>> walkingSprites;
-    private ArrayList<towerdefense.util.Pair<Integer, Integer>> gatheringSprites;
-    private ArrayList<towerdefense.util.Pair<Integer, Integer>> actualSprites;
+    private ArrayList<Pair<Integer, Integer>> walkingSprites;
+    private ArrayList<Pair<Integer, Integer>> gatheringSprites;
+    private ArrayList<Pair<Integer, Integer>> actualSprites;
     private int spriteIndex = 0;
     private int spriteDirection = 0;
     private long timeStamp = 0 ;
@@ -104,11 +105,11 @@ public class Peon extends Entity {
             actualSprites = walkingSprites;
 
             double degAngle = Math.abs(Math.toDegrees(angle));
-            if(isBetween(degAngle, 0, 45 ) || angle > 315) {
+            if(Functions.isBetween(degAngle, 0, 45 ) || angle > 315) {
                 spriteDirection = 2;
-            } else if (isBetween(degAngle, 46, 135)){
+            } else if (Functions.isBetween(degAngle, 46, 135)){
                 spriteDirection = 3;
-            } else if (isBetween(degAngle, 136, 225)) {
+            } else if (Functions.isBetween(degAngle, 136, 225)) {
                 spriteDirection = 1;
             } else {
                 spriteDirection = 0;
@@ -127,9 +128,5 @@ public class Peon extends Entity {
         } else {
             spriteIndex = 7;
         }
-    }
-
-    private static boolean isBetween(double x, double lower, double upper) {
-        return lower <= x && x <= upper;
     }
 }

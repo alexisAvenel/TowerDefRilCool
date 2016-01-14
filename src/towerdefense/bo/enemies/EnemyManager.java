@@ -34,14 +34,5 @@ public class EnemyManager implements Observer {
     @Override
     public void update(Observable o, Object arg) {
 
-        if(o instanceof GatherTask) {
-            BaseTask task = (BaseTask) o;
-
-
-            //MoveToBase mv = new towerdefense.bo.peon.MoveToBase(((towerdefense.bo.peon.BaseTask) o).peon, EntityManager.getBase());
-            //mv.addObserver(this);
-
-            //((BaseTask) o).peon.setTask(mv);
-        }
     }
 }

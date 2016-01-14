@@ -14,7 +14,6 @@ public class MoveTask  extends BaseTask {
     public MoveTask(Enemy enemy, Point target) {
         super(enemy);
         this.target = target;
-        enemy.setWalking();
     }
 
     //Getters - Setters
@@ -38,9 +37,10 @@ public class MoveTask  extends BaseTask {
     //Methods
     @Override
     public void execute() {
-        if(target != null && !done) {
+        if(target != null && !done){
             setNewSpeed(target);
-            if(enemy.intersects(new Rectangle(target, new Dimension(enemy.SIZE / 2, enemy.SIZE / 2)))) {
+            double d = new Point((int) enemy.getCenterX(), (int) enemy.getCenterY()).distance(target.getX(), target.getY());
+            if(d < enemy.width / 4) {
                 task_notify();
                 return;
             }
@@ -52,6 +52,7 @@ public class MoveTask  extends BaseTask {
     private void setNewSpeed(Point p) {
         double angle = Math.atan2(p.y - enemy.getCenterY(), p.x - enemy.getCenterX());
         enemy.setSpeed( enemy.MAG_SPEED * Math.cos(angle),  enemy.MAG_SPEED * Math.sin(angle));
+        enemy.setWalking(angle);
     }
 
     protected void task_notify() {

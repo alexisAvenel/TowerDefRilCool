@@ -37,7 +37,7 @@ public class MoveTask extends BaseTask {
     //Methods
     @Override
     public void execute() {
-        if(target != null && !done){
+        if(target != null && !done) {
             setNewSpeed(target);
             double d = new Point((int) peon.getCenterX(), (int) peon.getCenterY()).distance(target.getX(), target.getY());
             if(d < peon.width / 4) {

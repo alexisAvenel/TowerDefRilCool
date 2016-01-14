@@ -6,6 +6,7 @@ import towerdefense.util.Pair;
 import towerdefense.util.Sprite;
 
 import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 import java.util.Vector;
 import java.lang.*;
@@ -85,6 +86,26 @@ public class Peon extends Entity {
     @Override
     public void draw(Graphics2D g) {
         g.drawImage(sprite.getSprite(spriteIndex, spriteDirection), x, y, width, height, null);
+
+        if(this.ressource.getQuantity() > 0) {
+            String str = Integer.toString(this.ressource.getQuantity());
+            Color textColor = Color.WHITE;
+            Color bgColor = Color.BLACK;
+            int _x = x + width / 2;
+            int _y = y + 5;
+
+            FontMetrics fm = g.getFontMetrics();
+            Rectangle2D rect = fm.getStringBounds(str, g);
+
+            g.setColor(bgColor);
+            g.fillRect(_x,
+                    _y - fm.getAscent(),
+                    (int) rect.getWidth(),
+                    (int) rect.getHeight());
+
+            g.setColor(textColor);
+            g.drawString(str, _x, _y);
+        }
     }
 
     @Override

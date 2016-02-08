@@ -59,7 +59,7 @@ public class MainWindow extends JFrame {
 
     public void refreshBoard() {
         if (EntityManager.getBase().getLifePoint() == 0) {
-            msgPvBase.setText("Game Over !");
+            msgPvBase.setText("Game Over ! Your base has been detroyed!");
         }
         else {
             msgNbRessources.setText("Ressources : " + EntityManager.getBase().getStock());

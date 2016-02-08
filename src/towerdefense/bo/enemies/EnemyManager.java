@@ -1,5 +1,10 @@
 package towerdefense.bo.enemies;
 
+import towerdefense.bo.Base;
+import towerdefense.bo.ResourceDispenser;
+import towerdefense.bo.Ressource;
+import towerdefense.bo.peon.*;
+import towerdefense.bo.peon.BaseTask;
 import towerdefense.manager.EntityManager;
 import java.awt.*;
 import java.util.ArrayList;
@@ -23,7 +28,9 @@ public class EnemyManager implements Observer {
     public Enemy createEnemy(Point p) {
         Enemy enemy = new Enemy(p.x, p.y);
         enemies.add(enemy);
-        EntityManager.addEnemy(enemy);
+        if(enemies.size() <= 1) {
+            EntityManager.addEnemy(enemy);
+        }
         MoveToBase base = new MoveToBase(enemy, EntityManager.getBase());
         base.addObserver(this);
         enemy.setTask(base);
@@ -33,6 +40,21 @@ public class EnemyManager implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
+
+        if(o instanceof AttackBase) {
+            System.out.println("Base détruite !");
+            return;
+        }
+
+        if(o instanceof MoveToBase) {
+            MoveToBase task = (MoveToBase) o;
+
+            AttackBase ab = new AttackBase(task.enemy, (Base) arg);
+            ab.addObserver(this);
+            task.enemy.setTask(ab);
+
+            return;
+        }
 
     }
 }

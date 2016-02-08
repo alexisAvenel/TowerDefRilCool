@@ -50,13 +50,14 @@ public class GameThread {
     private static void PopEnemy() {
         EntityManager.enemyManger.createEnemy(
                 new Point(
-                        0,
+                        -80,
                         Functions.randInt(
                                 UIManager.getWindow().getBoard().getHeight()/2 - 70,
                                 UIManager.getWindow().getBoard().getHeight()/2 - 20
                         )
                 )
         );
+
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {

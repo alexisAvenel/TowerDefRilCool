@@ -19,6 +19,7 @@ public class MainWindow extends JFrame {
     private JButton AddTowerBtn;
     private JLabel msgSystem;
     private JLabel msgNbRessources;
+    private JLabel msgPvBase;
 
     public MainWindow() {
         setContentPane(contentPane);
@@ -57,7 +58,8 @@ public class MainWindow extends JFrame {
     }
 
     public void refreshBoard() {
-        msgNbRessources.setText("Ressources : "+ EntityManager.getBase().getStock());
+        msgNbRessources.setText("Ressources : " + EntityManager.getBase().getStock());
+        msgPvBase.setText("PV Base : " + EntityManager.getBase().getLifePoint());
         this.Board.repaint();
     }
 

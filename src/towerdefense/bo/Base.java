@@ -19,6 +19,7 @@ public class Base extends Entity {
     private int y;
     public static final int SIZE = 150;
     private int stock;
+    private int lifePoint;
     private BufferedImage img;
 
     public Base() {
@@ -33,6 +34,7 @@ public class Base extends Entity {
         enemyEntry.y= y+(SIZE/2);
 
         stock = 100;
+        lifePoint = 20;
 
         img = new Sprite("chateau.png").getImg();
     }
@@ -60,6 +62,18 @@ public class Base extends Entity {
             return false;
         }
     }
+
+    public boolean removeLifePoint(int quantity){
+        if((lifePoint - quantity) >= 0){
+            lifePoint -= quantity;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public int getLifePoint() { return lifePoint; }
 
     public int getStock() {
         return stock;

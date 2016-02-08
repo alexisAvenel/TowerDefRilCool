@@ -1,6 +1,5 @@
 package towerdefense.bo.peon;
 
-import towerdefense.bo.Base;
 import towerdefense.bo.ResourceDispenser;
 import towerdefense.bo.Ressource;
 import towerdefense.manager.EntityManager;
@@ -64,13 +63,10 @@ public class PeonManager implements Observer{
 
             task.peon.setRessource(new Ressource("", 10));
 
-            MoveToBase mv = new MoveToBase(((BaseTask) o).peon, EntityManager.getBase());
+            MoveToBase mv = new MoveToBase(task.peon, EntityManager.getBase());
             mv.addObserver(this);
 
-            ((BaseTask) o).peon.setTask(mv);
+            task.peon.setTask(mv);
         }
-
-
-
     }
 }

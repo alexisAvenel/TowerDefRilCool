@@ -10,7 +10,7 @@ public class MoveToBase  extends MoveTask {
 
     public MoveToBase(Enemy enemy, Base base) {
         super(enemy, base.getEnemyEntry());
-
+        this.base = base;
     }
 
     protected void task_notify() {

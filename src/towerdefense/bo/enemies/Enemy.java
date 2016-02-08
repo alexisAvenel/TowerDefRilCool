@@ -75,7 +75,6 @@ public class Enemy  extends Entity {
 
     @Override
     public void draw(Graphics2D g) {
-        System.out.println(spriteW + " / " + spriteH);
         g.drawImage(sprite.getSprite(spriteDirection,spriteIndex), x, y, width, height, null);
     }
 

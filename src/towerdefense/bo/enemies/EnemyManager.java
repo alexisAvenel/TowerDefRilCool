@@ -40,11 +40,6 @@ public class EnemyManager implements Observer {
     @Override
     public void update(Observable o, Object arg) {
 
-        if(o instanceof AttackBase) {
-            System.out.println("Base détruite !");
-            return;
-        }
-
         if(o instanceof MoveToBase) {
             MoveToBase task = (MoveToBase) o;
 

@@ -28,7 +28,6 @@ public class EnemyManager implements Observer {
     public Enemy createEnemy(Point p) {
         Enemy enemy = new Enemy(p.x, p.y);
         enemies.add(enemy);
-        if(enemies.size() <= 1) {
             EntityManager.addEnemy(enemy);
         }
         MoveToBase base = new MoveToBase(enemy, EntityManager.getBase());

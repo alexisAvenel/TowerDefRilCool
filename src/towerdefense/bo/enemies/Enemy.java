@@ -39,7 +39,7 @@ public class Enemy  extends Entity {
         speed.add((double) 0);
 
         spriteW = 76;
-        spriteH = getSpriteH();
+        spriteH = 60;
 
         sprite = new Sprite("enemy_spritesheet.png", spriteW, spriteH);
         walkingSprites = new ArrayList<>();
@@ -114,7 +114,6 @@ public class Enemy  extends Entity {
 
     public void setAttacking(long elapsed) {
         actualSprites = attackingSprites;
-        setSpriteH(60);
         elapsed = elapsed % 500;
         if(elapsed < 125) {
             spriteIndex = 5;
@@ -125,10 +124,6 @@ public class Enemy  extends Entity {
         } else {
             spriteIndex = 8;
         }
-    }
-
-    public int getSpriteH() {
-        return spriteH;
     }
 
     public void setSpriteH(int spriteH) {

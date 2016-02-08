@@ -34,7 +34,7 @@ public class Base extends Entity {
         enemyEntry.y= y+(SIZE/2);
 
         stock = 100;
-        lifePoint = 20;
+        lifePoint = 100;
 
         img = new Sprite("chateau.png").getImg();
     }

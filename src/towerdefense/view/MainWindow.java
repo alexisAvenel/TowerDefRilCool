@@ -58,9 +58,14 @@ public class MainWindow extends JFrame {
     }
 
     public void refreshBoard() {
-        msgNbRessources.setText("Ressources : " + EntityManager.getBase().getStock());
-        msgPvBase.setText("PV Base : " + EntityManager.getBase().getLifePoint());
-        this.Board.repaint();
+        if (EntityManager.getBase().getLifePoint() == 0) {
+            msgPvBase.setText("Game Over !");
+        }
+        else {
+            msgNbRessources.setText("Ressources : " + EntityManager.getBase().getStock());
+            msgPvBase.setText("PV Base : " + EntityManager.getBase().getLifePoint());
+            this.Board.repaint();
+        }
     }
 
     public towerdefense.view.Board getBoard() {
